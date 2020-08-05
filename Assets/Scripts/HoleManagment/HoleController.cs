@@ -7,12 +7,7 @@ public class HoleController : MonoBehaviour
     [SerializeField] private float speed = 1f;
     Rigidbody cubeRB;
     
-    [SerializeField] private bool isRightHole;
-
-    private void Start()
-    {
-        
-    }
+    [SerializeField] private bool isRightHole = false;
 
     private void Update()
     {
@@ -39,7 +34,7 @@ public class HoleController : MonoBehaviour
         cubeRB = other.gameObject.GetComponent<Rigidbody>();
         cubeRB.isKinematic = false;
         //Pull cube if colors compare
-        if (other.CompareTag(gameObject.tag))
+        if (other.CompareTag(gameObject.tag) || other.CompareTag("Coin"))
         {
             Vector3 gravity = (transform.position - other.gameObject.transform.position) * force;
             cubeRB.AddForce(new Vector3(gravity.x, 0, gravity.z));

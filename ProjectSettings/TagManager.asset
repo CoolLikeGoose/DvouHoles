@@ -6,6 +6,7 @@ TagManager:
   tags:
   - WarmColor
   - ColdColor
+  - Coin
   layers:
   - Default
   - TransparentFX

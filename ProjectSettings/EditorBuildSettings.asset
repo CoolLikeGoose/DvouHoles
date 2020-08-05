@@ -12,9 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Shop.unity
     guid: d415aa021a4eaab4db56904e9f45f321
   - enabled: 1
-    path: Assets/Scenes/Pics.unity
-    guid: 81fa8f10c3802a14b9f28244f4dd8fb4
+    path: Assets/Scenes/PaintChooseScene.unity
+    guid: a86ae0af778a78645ba11b9ff8cc2a7a
   - enabled: 1
-    path: Assets/Scenes/PaintGame.unity
-    guid: 00ee5d9f103e1034099778864e91d7a4
+    path: Assets/Scenes/PaintScene.unity
+    guid: e888086ae6832a7478049682d2dfda1f
   m_configObjects: {}

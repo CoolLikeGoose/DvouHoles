@@ -6,19 +6,17 @@ public class FingerController : MonoBehaviour
     //Only for PC controls
     public static FingerController Instance { get; private set; }
 
-    [SerializeField] private GameObject holeOne;
-    [SerializeField] private GameObject holeTwo;
+    [SerializeField] private GameObject holeOne = null;
+    [SerializeField] private GameObject holeTwo = null;
     private GameObject currentHole;
 
     private Vector3 holeOneStartPos;
     private Vector3 holeTwoStartPos;
 
-    [SerializeField] private float speed;
+    [SerializeField] private float speed = 0;
 
     private Vector2 previousPos;
     private Vector2 direction;
-    
-    [SerializeField] private float lerpFactor = 0.5f;
 
     [Tooltip("3 - нормальное значиние, 2 - вплотную")]
     [SerializeField] private float minDistanceBetweenHoles = 3f;

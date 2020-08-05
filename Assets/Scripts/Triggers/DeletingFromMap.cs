@@ -20,8 +20,9 @@ public class DeletingFromMap : MonoBehaviour
         }
 
         //Check if right cube drop in this hole
-        if (other.CompareTag(gameObject.tag)) { GameManager.OnRightCubeAbsorb(); }
-        else { GameManager.OnWrongCubeAbsorb(); }
+        if (other.CompareTag("Coin")) { GameManager.OnCoinCollected?.Invoke(); }
+        else if (other.CompareTag(gameObject.tag)) { GameManager.OnRightCubeAbsorb?.Invoke(); }
+        else { GameManager.OnWrongCubeAbsorb?.Invoke(); }
 
         Destroy(other.gameObject);
     }

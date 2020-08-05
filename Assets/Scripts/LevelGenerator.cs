@@ -7,14 +7,14 @@ public class LevelGenerator : MonoBehaviour
     //public int[] thatMassive = new int[2] { 1, 2 };
     private List<int> lvlOrder;
 
-    [Range(1, 10000)]
-    [SerializeField] private int levelAvaible;
-
     private void Awake()
     {
+        int levelAvaible = DataController.FilesAvaible("Levels");
+        Debug.Log(levelAvaible);
+
         GameManager.OnLevelCompleted += () =>
         {
-            if (PlayerPrefs.GetInt("LocalLvl", 0) == levelAvaible)
+            if (PlayerPrefs.GetInt("LocalLvl", 0) == levelAvaible-1)
             {
                 DataController.Shuffle(lvlOrder);
                 DataController.SaveMassive(lvlOrder, "levelsOrder");
@@ -27,6 +27,7 @@ public class LevelGenerator : MonoBehaviour
 
         if (lvlOrder == null || lvlOrder.Count != levelAvaible)
         {
+            Debug.Log("a");
             lvlOrder = new List<int>();
 
             for (int i = 1; i != levelAvaible+1; i++)
@@ -38,7 +39,9 @@ public class LevelGenerator : MonoBehaviour
             DataController.SaveMassive(lvlOrder, "levelsOrder");
         }
 
-        //Debug.Log("lvl " + lvlOrder[PlayerPrefs.GetInt("LocalLvl", 0)]);
-        Instantiate(Resources.Load(lvlOrder[PlayerPrefs.GetInt("LocalLvl", 0)].ToString()));
+        //Debug.Log(lvlOrder.Count);
+        //Debug.Log(PlayerPrefs.GetInt("LocalLvl", 0));
+        //Debug.Log("lvl " + PlayerPrefs.GetInt("LocalLvl", 0));
+        Instantiate(Resources.Load("Levels/" + lvlOrder[PlayerPrefs.GetInt("LocalLvl", 0)].ToString()));
     }
 }

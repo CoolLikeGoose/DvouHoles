@@ -7,10 +7,14 @@ public class CubeConfiguration : MonoBehaviour
 
     [NonSerialized] public int cubesOnTheMap;
 
-    Color[] colors;
+    [NonSerialized] public Color[] colors;
 
-    [SerializeField] private GameObject warmHole;
-    [SerializeField] private GameObject coldHole;
+    [SerializeField] private GameObject warmHole = null;
+    [SerializeField] private GameObject coldHole = null;
+
+    //for reward
+    [NonSerialized] public int warmCubes;
+    [NonSerialized] public int coldCubes;
 
     private void Awake()
     {
@@ -27,9 +31,13 @@ public class CubeConfiguration : MonoBehaviour
         GameObject[] warmColorBlocks = GameObject.FindGameObjectsWithTag("WarmColor");
         GameObject[] coldColorBlocks = GameObject.FindGameObjectsWithTag("ColdColor");
 
+        warmCubes = warmColorBlocks.Length;
+        coldCubes = coldColorBlocks.Length;
+
         warmHole.GetComponent<Renderer>().material.color = colors[0];
         coldHole.GetComponent<Renderer>().material.color = colors[1];
 
+       
         foreach (GameObject block in warmColorBlocks)
         {
             if (block.name == "AssDestroyer" ||

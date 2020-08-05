@@ -8,7 +8,7 @@ public class UI_spawner : MonoBehaviour
 {
     public Button[] kraska_buttons;
     Vector3 startPos = new Vector3(100, -90, 0);
-    int CSGO = 0;
+    //int CSGO = 0;
     public Transform RoditelKnopok;
 
 

@@ -7,8 +7,8 @@ public class GameManager : MonoBehaviour
     public static Action OnRightCubeAbsorb;
     public static Action OnWrongCubeAbsorb;
     public static Action OnGameStart;
-    public static Action OnGameEnd;
     public static Action OnLevelCompleted;
+    public static Action OnCoinCollected;
 
     private void Awake()
     {
@@ -20,8 +20,11 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(id);
     }
 
-    public void OnClearPrefsBtn()
+    public void DeleteAll()
     {
+        string[] gooseFiles = System.IO.Directory.GetFiles(Application.persistentDataPath, "*.goose");
+        foreach (string path in gooseFiles)
+            System.IO.File.Delete(path);
         PlayerPrefs.DeleteAll();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
@@ -31,7 +34,7 @@ public class GameManager : MonoBehaviour
         OnRightCubeAbsorb = null;
         OnWrongCubeAbsorb = null;
         OnGameStart = null;
-        OnGameEnd = null;
         OnLevelCompleted = null;
+        OnCoinCollected = null;
     }
 }

@@ -29,14 +29,14 @@ public static class ColorExtensions
             for (int i = 0; i < 2; i++)
             {
                 colorsData[i] = ParseColor(data.ReadLine());
-                if (colorsData[i][3] == 0 && i == 0) { colorsData[i] = new Color(0.2830189f, 0.2816839f, 0.2816839f); }
+                if (colorsData[i][3] == 0 && i == 0) { colorsData[i] = new Color(0.282f, 0.282f, 0.282f); }
                 else if (colorsData[i][3] == 0) { colorsData[i] = new Color(1, 1, 1); }
             }
             data.Close();
 
             return colorsData;
         }
-        return new Color[] { new Color(0.2830189f, 0.2816839f, 0.2816839f), new Color(1, 1, 1) };
+        return new Color[] { new Color(0.282f, 0.282f, 0.282f), new Color(1, 1, 1) };
     }
 
     public static void SaveColorMassive(Color[] massive)
